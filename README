@@ -1,0 +1,70 @@
+Bare Bones Chromium Embedded Framework 3
+----------------------------------------
+https://github.com/aphistic/cef3barebones
+CEF Project: https://code.google.com/p/chromiumembedded/
+
+This is a bare-bones implementation of CEF3. It's only the minimum that you
+need in order to show a window with a few browser frames.  The code is not
+high-quality and there's a good chance it has a number of issues.  Use it as
+a starting point for getting your application off the ground, but take a look
+at the "cefclient" project distributed with CEF3 itself for a full-featured 
+look into how to implement CEF3.
+
+At some point I'll probably update this to include versions for OS X and
+Windows, but at this point it's only GTK+ under Linux.
+
+Please note that this code is unsupported.  If you're having problems
+getting an implementation up and running, please look at the CEF project site
+and visit the CEF project Support Forum for help.
+
+If you do notice something I've done wrong or you'd like to add to the code
+to help future developers, please let me know so I can get it added in here!
+
+Versions
+--------
+
+This repository includes a binary build of CEF3.  The version of CEF3
+currently included is: 1271
+
+Building
+--------
+
+Run the build.sh shell script from the root of the repository and provide
+either 'x86' or 'x86_64' to the script depending on the architecture you're
+running on.
+
+Ex:
+$ ./build.sh x86
+$ ./build.sh x86_64
+
+Running
+-------
+
+The build script copies all the binary files (including libraries and 
+run-time files) to the build/ directory in the root of the repository.  To 
+run the binaries, change to the build directory and run the following:
+
+If you're running some environment in X:
+$ LD_LIBRARY_PATH=. ./barebones --no-sandbox
+
+If you're running from a terminal and want to run it in X on the main 
+screen (nice if you're running over SSH like I am):
+$ DISPLAY=:0 LD_LIBRARY_PATH=. xinit ./barebones --no-sandbox
+
+The --no-sandbox parameter tells chromium to run without a sandbox. This
+is not recommended (especially for production) by the Chromium team as it
+poses a security risk, but it's the easiest way to get this running quickly.
+
+If you're having a problem running with the libraries provided, you may need
+to compile your own binaries.  These were built on the latest Arch Linux
+around 1/8/2013.
+
+LICENSE
+-------
+CEF is licensed under the New BSD License. I take no claim to any code
+provided by CEF, so take a look at the project's site for more details.
+https://code.google.com/p/chromiumembedded/
+
+The implementation code is licensed under the "I don't care" license.  Do
+whatever you want with it, but use it at your own risk!
+
