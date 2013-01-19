@@ -1,6 +1,10 @@
 // CEF3 Bare Bones
 // https://github.com/aphistic/cef3barebones
 //
+// For some details on what this code is doing, please see
+// my blog post at:
+// http://blog.erikd.org/2013/01/14/chromium-embedded-framework-3-bare-bones/
+//
 // PLEASE READ:
 // Check out the README file for information about this code. 
 // TLDR version: This code is not good, it's the bare minimum you need and
